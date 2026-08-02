@@ -1,0 +1,11 @@
+{ config, lib, pkgs, ... }:
+
+{
+  services.greetd = {
+    enable = true;
+    settings.default_session = {
+      user = "greeter";
+      command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session --asterisks";
+    };
+  };
+}
