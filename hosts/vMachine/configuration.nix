@@ -34,7 +34,6 @@
     services = {
       homeManager.enable = true;
       agenix.enable = true;
-      noctalia.enable = true;
     };
 
     system.locale = {
@@ -77,6 +76,11 @@
       compositor = {
         enable = true;
         type = "niri";
+      };
+
+      shell = {
+        enable = true;
+        type = "dms";
       };
       
       inputMethod = {
