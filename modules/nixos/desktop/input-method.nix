@@ -12,17 +12,26 @@ in
       default = "fcitx5";
       description = "Input method framework type.";
     };
+
+    waylandFrontend = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Use the Fcitx5 Wayland frontend instead of GTK/QT IM modules.";
+    };
   };
 
   config = lib.mkIf cfg.enable {
     i18n.inputMethod = {
       enable = true;
       type = cfg.type;
-      fcitx5.addons = with pkgs; [
-        fcitx5-rime
-        fcitx5-gtk
-        qt6Packages.fcitx5-configtool
-      ];
+      fcitx5 = {
+        addons = with pkgs; [
+          fcitx5-rime
+          fcitx5-gtk
+          qt6Packages.fcitx5-configtool
+        ];
+        waylandFrontend = cfg.waylandFrontend;
+      };
     };
   };
 }
