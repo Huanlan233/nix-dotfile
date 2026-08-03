@@ -7,8 +7,8 @@ in
   config = lib.mkIf (shell.enable && shell.type == "noctalia") {
     programs.noctalia = {
       enable = true;
-      recommendedServices.enable = cfg.recommendedServices;
-      systemd.enable = cfg.systemd;
+      recommendedServices.enable = true;
+      systemd.enable = true;
     };
   };
 }
