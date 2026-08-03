@@ -27,6 +27,7 @@
     };
 
     system.nix.enable = true;
+    system.users.enable = true;
 
     hardware.bluetooth.enable = true;
 

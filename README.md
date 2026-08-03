@@ -12,7 +12,7 @@ hosts/              Machine-specific configuration
   vMachine/         Example machine
 homes/              Home Manager configuration
   shared/           Common home settings shared by all users
-  users/<name>/     Optional per-user Home Manager config
+  <name>/           Per-user nix and Home Manager config
 modules/
   nixos/            Reusable NixOS modules
     default.nix     Recursively imports all NixOS module files
@@ -48,10 +48,11 @@ under `hosts/` except `shared` as a `nixosConfiguration`.
 
 ## Add a user
 
-Define a normal user in `hosts/shared/users.nix` or in a host config. Home
-Manager automatically picks up every `isNormalUser` and injects
-`home.username` and `home.homeDirectory`. Optional personal configuration can
-be added under `homes/users/<name>/default.nix`.
+Create `homes/<name>/user.nix` to define the NixOS account. Optionally create
+`homes/<name>/default.nix` for Home Manager personal configuration. Both files
+are auto-discovered: `user.nix` generates the system user, and `default.nix` is
+imported by Home Manager with `home.username` and `home.homeDirectory` injected
+automatically.
 
 User applications and user-level configuration stay under `homes/`; they are
 installed through the user profile so system packages remain system-only.
