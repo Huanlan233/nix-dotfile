@@ -5,9 +5,9 @@ let
 in
 {
   options.settings.nixos.desktop.displayManager = {
-    enable = lib.mkEnableOption "greetd display manager";
-
-    command = lib.mkOption {
+    enable = lib.mkEnableOption "Display Manager.";
+    greetd.enable = lib.mkEnableOption "Greetd";
+    greetd.command = lib.mkOption {
       type = lib.types.str;
       default = "niri-session";
       description = "Session command launched by the greeter.";
@@ -15,11 +15,11 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    services.greetd = {
+    services.greetd = lib.mkIf cfg.greetd.enable {
       enable = true;
       settings.default_session = {
         user = "greeter";
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd ${cfg.command} --asterisks";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd ${cfg.greetd.command} --asterisks";
       };
     };
   };

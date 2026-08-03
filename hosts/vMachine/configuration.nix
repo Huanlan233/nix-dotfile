@@ -7,9 +7,36 @@
   ];
 
   settings.nixos = {
-    system.base = {
-      enable = true;
+    system.version = {
       stateVersion = "26.05";
+    };
+
+    system.env = {
+      pathsToLink = [
+        "/share/applications"
+        "/share/xdg-desktop-portal"
+      ];
+
+      sessionVars = {
+        #GTK_IM_MODULE = "fcitx";
+        #QT_IM_MODULE = "fcitx";
+        XMODIFIERS = "@im=fcitx";
+        SDL_IM_MODULE = "fcitx";
+      };
+
+      vars = {
+
+      };
+
+      sysPkgs = with pkgs; [
+
+      ];
+    };
+
+    services = {
+      homeManager.enable = true;
+      agenix.enable = true;
+      noctalia.enable = true;
     };
 
     system.locale = {
@@ -26,22 +53,39 @@
       firewall = true;
     };
 
-    system.nix.enable = true;
-    system.users.enable = true;
-
-    hardware.bluetooth.enable = true;
-
-    desktop.displayManager = {
+    system.nix = {
       enable = true;
-      command = "niri-session";
+      allowUnfree.enable = true;
+      experimentalFeatures = [];
+    };
+    
+    system.users = {
+      enable = true;
     };
 
-    desktop.niri.enable = true;
-    desktop.inputMethod.enable = true;
+    hardware = {
+      bluetooth.enable = true;
+    };
 
-    services.homeManager.enable = true;
-    services.agenix.enable = true;
-    services.noctalia.enable = true;
+    desktop = {
+      displayManager = {
+        enable = true;
+        greetd = {
+          enable = true;
+          command = "niri-session";
+        };
+      };
+
+      compositor = {
+        enable = true;
+        type = "niri";
+      };
+      
+      inputMethod = {
+        enable = true;
+        type = "fcitx5";
+      };
+    };
   };
 
   boot = {
