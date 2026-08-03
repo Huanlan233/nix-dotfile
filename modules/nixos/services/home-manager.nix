@@ -3,15 +3,22 @@
 let
   cfg = config.settings.nixos.services.homeManager;
 
-  # Normal NixOS users are managed by Home Manager automatically.
-  userNames = lib.filter
-    (name: config.users.users.${name}.isNormalUser or false)
-    (lib.attrNames config.users.users);
+  inherit (builtins) attrNames pathExists readDir;
+
+  # User nix files under homes/ are the source of truth.
+  userDirs = lib.filterAttrs (
+    name: type:
+      type == "directory"
+      && name != "shared"
+      && name != "users"
+  ) (readDir ../../../homes);
+
+  userNames = attrNames userDirs;
 
   homeModuleFor = name: {
     # Optional per-user config: homes/<name>/default.nix.
     imports = lib.optional
-      (builtins.pathExists ../../../homes/${name}/default.nix)
+      (pathExists ../../../homes/${name}/default.nix)
       ../../../homes/${name}/default.nix;
   };
 in

@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./users.nix
     ../../modules/nixos/default.nix
   ];
 }
