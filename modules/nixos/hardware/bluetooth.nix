@@ -1,5 +1,13 @@
 { config, lib, ... }:
 
+let
+  cfg = config.settings.nixos.hardware.bluetooth;
+in
 {
-  hardware.bluetooth.enable = true;
+  options.settings.nixos.hardware.bluetooth.enable =
+    lib.mkEnableOption "Bluetooth support";
+
+  config = lib.mkIf cfg.enable {
+    hardware.bluetooth.enable = true;
+  };
 }

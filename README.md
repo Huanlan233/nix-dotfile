@@ -15,15 +15,40 @@ homes/              Home Manager configuration
   users/<name>/     Optional per-user Home Manager config
 modules/
   nixos/            Reusable NixOS modules
+<<<<<<< HEAD
+=======
+    default.nix     Recursively imports all NixOS module files
+>>>>>>> 9542c8e (perf: Options with modules)
     system/         OS-level basics: locale, network, nix settings
     desktop/        Display manager, compositor, input method
     hardware/       Hardware enablement
     services/       Home Manager, secrets, background services
   home/             Reusable Home Manager modules
+<<<<<<< HEAD
+=======
+    default.nix     Recursively imports all Home Manager module files
+>>>>>>> 9542c8e (perf: Options with modules)
     editors/        Editor configuration
 secrets/            Agenix secrets and public keys
 ```
 
+<<<<<<< HEAD
+=======
+## Module options
+
+Each module is exposed as an option under `settings`. For example, the
+vMachine configuration enables modules with:
+
+```nix
+settings.nixos.desktop.niri.enable = true;
+settings.nixos.services.homeManager.enable = true;
+settings.home.editors.nixvim.enable = true;
+```
+
+Every module is off by default and only applies its config when the matching
+`enable` option is set to `true`.
+
+>>>>>>> 9542c8e (perf: Options with modules)
 ## Add a machine
 
 Create `hosts/<machine>/configuration.nix` and optionally a
