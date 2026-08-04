@@ -1,8 +1,32 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
     programs.niri.settings = {
+        input = {
+            keyboard = {
+                xkb.layout = "us";
+                numlock = true;
+            };
+        };
+
+        layout = {
+            focus-ring = {
+                width = 2;
+            };
+        };
+
+        outputs = {
+            "Virtual-1" = { # This is for vMachine
+                scale = 1;
+                mode = {
+                    width = 1920;
+                    height = 1080;
+                };
+            };
+        };
+        
         prefer-no-csd = true;
+        
         binds = {
             "Mod+T".action.spawn = "alacritty";
 
