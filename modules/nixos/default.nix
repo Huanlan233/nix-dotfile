@@ -4,10 +4,20 @@ let
   inherit (builtins) attrNames readDir;
   inherit (lib) concatMap filterAttrs hasSuffix;
 
+  ignoredDirs = {
+    "compositors" = true;
+    "display-managers" = true;
+    "greeters" = true;
+    "input-methods" = true;
+    "shells" = true;
+  };
+
   collectNixFiles = dir:
     let
       entries = readDir dir;
-      dirs = filterAttrs (_: type: type == "directory") entries;
+      dirs = filterAttrs (
+        name: type: type == "directory" && !(ignoredDirs ? name)
+      ) entries;
       files = filterAttrs (
         name: type:
           type == "regular"

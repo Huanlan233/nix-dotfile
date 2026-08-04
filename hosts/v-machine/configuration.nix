@@ -67,10 +67,12 @@
     desktop = {
       displayManager = {
         enable = true;
-        greetd = {
-          enable = true;
-          command = "niri-session";
-        };
+        type = "greetd";
+      };
+
+      greeter = {
+        enable = true;
+        type = "dankgreeter"; # or "tuigreet"
       };
 
       compositor = {
@@ -85,7 +87,7 @@
       
       inputMethod = {
         enable = true;
-        type = "fcitx5";
+        type = "fcitx5"; # or "ibus"
       };
     };
   };
