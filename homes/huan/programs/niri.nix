@@ -96,6 +96,9 @@
             "Alt+Print".action.screenshot-window = [];
 
             # Control Window & Column
+            "Mod+BracketLeft".action.consume-or-expel-window-left = [];
+            "Mod+BracketRight".action.consume-or-expel-window-right = [];
+
             "Mod+Ctrl+1".action.move-column-to-workspace = 1;
             "Mod+Ctrl+2".action.move-column-to-workspace = 2;
             "Mod+Ctrl+3".action.move-column-to-workspace = 3;
