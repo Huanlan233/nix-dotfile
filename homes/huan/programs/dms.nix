@@ -6,6 +6,9 @@
     ];
     programs.dank-material-shell.enable = true;
     programs.dank-material-shell.settings = {
+        iconThemeDark = "Adwaita";
+        iconThemeLight = "Adwaita";
+        iconThemePerMode = false;
         showDock = true;
         dockAutoHide = true;
         dockSmartAutoHide = true;
