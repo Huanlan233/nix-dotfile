@@ -28,7 +28,7 @@
         prefer-no-csd = true;
         
         binds = {
-            "Mod+Space".action.spawn = "dms ipc call spotlight toggle";
+            "Mod+Return".action.spawn = ["dms" "ipc" "call" "spotlight" "toggle"];
             "Mod+T".action.spawn = "alacritty";
 
             "Mod+1".action.focus-workspace = 1;

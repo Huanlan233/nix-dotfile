@@ -1,11 +1,17 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
-    programs.dank-material-shell = {
+    imports = [
+        inputs.dms.homeModules.dank-material-shell
+    ];
+    programs.dank-material-shell.enable = true;
+    programs.dank-material-shell.settings = {
         showDock = true;
         dockAutoHide = true;
+        dockSmartAutoHide = true;
         dockOpenOnOverview = true;
         dockLauncherEnable = true;
+        dockPosition = 3;
         barConfigs = [
             {
                 "id" = "default";
@@ -28,11 +34,7 @@
                     "weather"
                 ];
                 "rightWidgets" = [
-                    "systemTray";
-                    {
-                    "id" = "separator";
-                    "enabled" = true;
-                    };
+                    "systemTray"
                     "clipboard"
                     "cpuUsage"
                     "memUsage"
@@ -64,7 +66,7 @@
                 "widgetOutlineThickness" = 1;
                 "fontScale" = 1;
                 "iconScale" = 1;
-                "autoHide" = true;
+                "autoHide" = false;
                 "autoHideStrict" = false;
                 "autoHideDelay" = 250;
                 "showOnWindowsOpen" = false;
@@ -83,8 +85,8 @@
                 "shadowCustomColor" = "#000000";
                 "clickThrough" = false;
                 "hoverPopouts" = false;
-                "hoverPopoutDelay" = 150
+                "hoverPopoutDelay" = 150;
             }
-        ]
+        ];
     };
 }
