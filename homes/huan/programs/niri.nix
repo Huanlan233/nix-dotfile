@@ -15,15 +15,15 @@
             };
         };
 
-        outputs = {
-            "Virtual-1" = { # This is for vMachine
-                scale = 1;
-                mode = {
-                    width = 1920;
-                    height = 1080;
-                };
-            };
-        };
+        # outputs = {
+        #     "Virtual-1" = { # This is for vMachine
+        #         scale = 1;
+        #         mode = {
+        #             width = 1920;
+        #             height = 1080;
+        #         };
+        #     };
+        # };
         
         prefer-no-csd = true;
         
