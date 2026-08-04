@@ -4,31 +4,39 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [ ];
+    imports = [ ];
 
-  boot.initrd.availableKernelModules = [ "ata_piix" "mptspi" "uhci_hcd" "ehci_pci" "ahci" "sd_mod" "sr_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
-  boot.extraModulePackages = [ ];
+    boot.initrd.availableKernelModules = [ 
+        "ata_piix"
+        "mptspi"
+        "uhci_hcd"
+        "ehci_pci"
+        "ahci"
+        "sd_mod"
+        "sr_mod" 
+    ];
+    boot.initrd.kernelModules = [ ];
+    boot.kernelModules = [ ];
+    boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/c0ca6482-a3fd-4902-bd89-9022555165f2";
-      fsType = "btrfs";
+    fileSystems."/" = {
+        device = "/dev/disk/by-uuid/c0ca6482-a3fd-4902-bd89-9022555165f2";
+        fsType = "btrfs";
     };
 
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/c0ca6482-a3fd-4902-bd89-9022555165f2";
-      fsType = "btrfs";
-      options = [ "subvol=nix" ];
+    fileSystems."/nix" = {
+        device = "/dev/disk/by-uuid/c0ca6482-a3fd-4902-bd89-9022555165f2";
+        fsType = "btrfs";
+        options = [ "subvol=nix" ];
     };
 
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/c0ca6482-a3fd-4902-bd89-9022555165f2";
-      fsType = "btrfs";
-      options = [ "subvol=home" ];
+    fileSystems."/home" = { 
+        device = "/dev/disk/by-uuid/c0ca6482-a3fd-4902-bd89-9022555165f2";
+        fsType = "btrfs";
+        options = [ "subvol=home" ];
     };
 
-  swapDevices = [ ];
+    swapDevices = [ ];
 
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+    nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
