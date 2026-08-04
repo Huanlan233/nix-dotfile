@@ -50,7 +50,7 @@
             "Mod+O".action.toggle-overview = [];
 
             "Mod+R".action.switch-preset-column-width = [];
-            "Mod+Shift+R".action.switch-preset-column-height = [];
+            "Mod+Shift+R".action.switch-preset-window-height = [];
             "Mod+Ctrl+R".action.reset-window-height = [];
 
             "Mod+C".action.center-column = [];
@@ -58,8 +58,8 @@
 
             "Mod+Equal".action.set-column-width = "+10%";
             "Mod+Minus".action.set-column-width = "-10%";
-            "Mod+Shift+Equal".action.set-column-height = "+10%";
-            "Mod+Shift+Minus".action.set-column-height = "-10%";
+            "Mod+Shift+Equal".action.set-window-height = "+10%";
+            "Mod+Shift+Minus".action.set-window-height = "-10%";
 
             "Mod+V".action.toggle-window-floating = [];
             "Mod+Shift+V".action.switch-focus-between-floating-and-tiling = [];
@@ -81,8 +81,8 @@
             "Mod+Ctrl+8".action.move-column-to-workspace = 8;
             "Mod+Ctrl+9".action.move-column-to-workspace = 9;
 
-            "Mod+Ctrl+Home".action.move-column-first = [];
-            "Mod+Ctrl+End".action.move-column-last = [];
+            "Mod+Ctrl+Home".action.move-column-to-first = [];
+            "Mod+Ctrl+End".action.move-column-to-last = [];
 
             "Mod+Ctrl+Up".action.move-window-up = [];
             "Mod+Ctrl+Down".action.move-window-down = [];
