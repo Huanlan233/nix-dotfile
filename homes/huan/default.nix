@@ -18,8 +18,6 @@
     firefox
     vscode
     clash-verge-rev
-    alacritty
-
     # kdePackages.dolphin
     # kdePackages.qtsvg
     # kdePackages.kio

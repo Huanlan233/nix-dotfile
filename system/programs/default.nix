@@ -33,5 +33,10 @@
         smartindent = true;
       };
     };
+
+    nautilus-open-any-terminal = {
+      enable = true;
+      terminal = "alacritty";
+    };
   };
 }

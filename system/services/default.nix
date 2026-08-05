@@ -23,5 +23,9 @@
     dbus = {
       enable = true;
     };
+
+    xserver = {
+      updateDbusEnvironment = true;
+    };
   };
 }
