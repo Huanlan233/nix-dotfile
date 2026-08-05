@@ -12,6 +12,6 @@
     ./git.nix
     ./gtk.nix
     ./niri.nix
-    ./notcalia.nix
+    ./noctalia.nix
   ];
 }

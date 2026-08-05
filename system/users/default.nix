@@ -35,7 +35,7 @@
     ];
 
     users = {
-      "huan" = import ../homes/huan/default.nix;
+      "huan" = import ../../homes/huan;
     };
   };
 }
