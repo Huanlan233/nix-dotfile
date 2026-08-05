@@ -38,6 +38,7 @@
       agenix-cli
       adwaita-icon-theme
       git
+      wget
     ];
   };
 
