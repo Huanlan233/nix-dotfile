@@ -5,6 +5,7 @@
         inputs.home-manager.nixosModules.home-manager
         inputs.agenix.nixosModules.default
         inputs.niri.nixosModules.niri
+        inputs.nixvim.nixosModules.nixvim
     ];
 
     environment = {
@@ -91,6 +92,18 @@
             enable = true;
             recommendedServices.enable = true;
             systemd.enable = true;
+        };
+
+        nixvim = {
+            enable = true;
+            defaultEditor = true;
+            nixpkgs.source = inputs.nixpkgs;
+            opts = {
+                tabstop = 4;
+                shiftwidth = 4;
+                expandtab = true;
+                smartindent = true;
+            };
         };
     };
 
