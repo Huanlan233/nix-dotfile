@@ -4,6 +4,7 @@
     imports = [
         inputs.home-manager.nixosModules.home-manager
         inputs.agenix.nixosModules.default
+        inputs.niri.nixosModules.niri
     ];
 
     environment = {
@@ -57,7 +58,7 @@
                 fcitx5-gtk
                 qt6Packages.fcitx5-configtool
                 ];
-                waylandFrontend = fcitx5.waylandFrontend;
+                waylandFrontend = true;
             };
         };
     };
@@ -99,7 +100,7 @@
             description = "Huan";
             extraGroups = [ "networkmanager" "wheel" ];
             openssh.authorizedKeys.keys = [ ];
-        }
+        };
     };
 
     home-manager = {
@@ -112,11 +113,14 @@
         ];
 
         users = {
-            "huan" = import ../homes/default.nix
+            "huan" = import ../homes/huan/default.nix;
         };
+    };
+    
+    system = {
+        stateVersion = "26.05";
     };
 
     nixpkgs.config.allowUnfree = true;
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
-    stateVersion = "26.05";
 }
