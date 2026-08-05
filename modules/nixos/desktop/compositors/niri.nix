@@ -10,6 +10,5 @@ in
 
     config = lib.mkIf (compositor.enable && compositor.type == "niri") {
         programs.niri.enable = true;
-        settings.nixos.desktop.compositor.sessionCommand = "niri-session";
     };
 }

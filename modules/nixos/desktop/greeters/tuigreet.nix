@@ -9,7 +9,7 @@ in
         services.greetd = {
             useTextGreeter = true;
             settings.default_session.command =
-                "${pkgs.tuigreet}/bin/tuigreet --time --cmd ${lib.escapeShellArg compositor.sessionCommand} --asterisks";
+                "${pkgs.tuigreet}/bin/tuigreet --time --asterisks";
         };
 
         assertions = [
