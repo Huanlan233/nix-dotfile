@@ -135,7 +135,9 @@
     useUserPackages = false;
 
     sharedModules = [
-      ../homes/shared/home.nix
+      {
+        home.stateVersion = lib.mkDefault "26.05";
+      }
     ];
 
     users = {

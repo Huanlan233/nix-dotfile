@@ -31,5 +31,4 @@
     inputs.codex-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
-  home.stateVersion = lib.mkDefault "26.05";
 }
