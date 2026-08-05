@@ -84,7 +84,7 @@
 
             shell = {
                 enable = true;
-                type = "dms";
+                type = "noctalia";
             };
 
             inputMethod = {
