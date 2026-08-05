@@ -74,7 +74,7 @@
 
             greeter = {
                 enable = true;
-                type = "dankgreeter"; # or "tuigreet"
+                type = "tuigreet";
             };
 
             compositor = {
@@ -89,7 +89,7 @@
 
             inputMethod = {
                 enable = true;
-                type = "fcitx5"; # or "ibus"
+                type = "fcitx5";
             };
         };
         };
