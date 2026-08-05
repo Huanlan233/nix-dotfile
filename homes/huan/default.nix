@@ -8,10 +8,7 @@
 
 {
   imports = [
-    ./programs/fcitx5.nix
-    ./programs/git.nix
-    ./programs/niri.nix
-    ./programs/dms.nix
+    ./programs/default.nix
   ];
 
   home.packages = with pkgs; [
