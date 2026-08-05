@@ -71,7 +71,7 @@
           mkHost = hostName: nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [
-              ./hosts/${hostName}/configuration.nix
+              ./hosts/${hostName}/default.nix
             ];
             specialArgs = {
               inherit inputs;
