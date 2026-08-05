@@ -11,6 +11,9 @@
     ./programs/default.nix
   ];
 
+  home.username = "huan";
+  home.homeDirectory = "/home/huan";
+
   home.packages = with pkgs; [
     firefox
     vscode
