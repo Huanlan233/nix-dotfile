@@ -16,6 +16,7 @@
     ./services/default.nix
     ./time/default.nix
     ./users/default.nix
+    ./xdg/default.nix
   ];
 
   system = {

@@ -20,13 +20,13 @@
     clash-verge-rev
     alacritty
 
-    kdePackages.dolphin
-    kdePackages.qtsvg
-    kdePackages.kio
-    kdePackages.kio-fuse
-    kdePackages.kio-extras
+    # kdePackages.dolphin
+    # kdePackages.qtsvg
+    # kdePackages.kio
+    # kdePackages.kio-fuse
+    # kdePackages.kio-extras
 
-    mcp-nixos
+    # mcp-nixos
     cc-switch
     inputs.codex-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];

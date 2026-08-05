@@ -28,6 +28,8 @@
       adwaita-icon-theme
       git
       wget
+      tree
+      nautilus
     ];
   };
 }
