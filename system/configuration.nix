@@ -1,0 +1,30 @@
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
+
+{
+  imports = [
+    ./environment/default.nix
+    ./hardware/default.nix
+    ./i18n/default.nix
+    ./networking/default.nix
+    ./programs/default.nix
+    ./services/default.nix
+    ./time/default.nix
+    ./users/default.nix
+  ];
+
+  system = {
+    stateVersion = "26.05";
+  };
+
+  nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+}
