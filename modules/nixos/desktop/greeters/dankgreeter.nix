@@ -11,12 +11,5 @@ in
             enable = true;
             compositor.name = compositor.type;
         };
-
-        assertions = [
-            {
-                assertion = compositor.enable;
-                message = "DankGreeter requires an enabled compositor.";
-            }
-        ];
     };
 }

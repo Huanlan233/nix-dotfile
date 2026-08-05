@@ -16,11 +16,5 @@
             default = "niri";
             description = "Compositor flavour";
         };
-
-        sessionCommand = lib.mkOption {
-            type = lib.types.str;
-            default = "";
-            description = "Session command provided by the selected compositor.";
-        };
     };
 }

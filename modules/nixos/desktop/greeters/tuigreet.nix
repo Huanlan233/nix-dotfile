@@ -7,16 +7,8 @@ in
 {
     config = lib.mkIf (greeter.enable && greeter.type == "tuigreet") {
         services.greetd = {
-            useTextGreeter = true;
-            settings.default_session.command =
-                "${pkgs.tuigreet}/bin/tuigreet --time --asterisks";
+            useTextGreeter = false;
+            settings.default_session.command = "${lib.getExe pkgs.tuigreet} --asterisks";
         };
-
-        assertions = [
-            {
-                assertion = compositor.enable && compositor.sessionCommand != "";
-                message = "TUIGreet requires an enabled compositor with a session command.";
-            }
-        ];
     };
 }
