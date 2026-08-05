@@ -56,33 +56,39 @@
     };
   };
 
-  outputs = { flake-parts, nixpkgs, ... }@inputs:
+  outputs =
+    { flake-parts, nixpkgs, ... }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
-
+      perSystem = { pkgs, ... }: {
+        formatter = pkgs.nixfmt;
+      };
       flake = {
-        nixosConfigurations = let
-          # Every directory under hosts/ becomes a machine.
-          isHostDir = name: type: type == "directory" && name != "shared";
-          hostNames = builtins.attrNames (
-            nixpkgs.lib.filterAttrs isHostDir (builtins.readDir ./hosts)
-          );
+        nixosConfigurations =
+          let
+            # Every directory under hosts/ becomes a machine.
+            isHostDir = name: type: type == "directory" && name != "shared";
+            hostNames = builtins.attrNames (nixpkgs.lib.filterAttrs isHostDir (builtins.readDir ./hosts));
 
-          mkHost = hostName: nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            modules = [
-              ./hosts/${hostName}/default.nix
-            ];
-            specialArgs = {
-              inherit inputs;
-              inherit hostName;
-            };
-          };
-        in
-        builtins.listToAttrs (map (name: {
-          inherit name;
-          value = mkHost name;
-        }) hostNames);
+            mkHost =
+              hostName:
+              nixpkgs.lib.nixosSystem {
+                system = "x86_64-linux";
+                modules = [
+                  ./hosts/${hostName}/default.nix
+                ];
+                specialArgs = {
+                  inherit inputs;
+                  inherit hostName;
+                };
+              };
+          in
+          builtins.listToAttrs (
+            map (name: {
+              inherit name;
+              value = mkHost name;
+            }) hostNames
+          );
       };
     };
 }

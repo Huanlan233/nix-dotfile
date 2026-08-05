@@ -1,139 +1,154 @@
-{ config, pkgs, lib, inputs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 {
-    imports = [
-        inputs.home-manager.nixosModules.home-manager
-        inputs.agenix.nixosModules.default
-        inputs.niri.nixosModules.niri
-        inputs.nixvim.nixosModules.nixvim
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+    inputs.agenix.nixosModules.default
+    inputs.niri.nixosModules.niri
+    inputs.nixvim.nixosModules.nixvim
+  ];
+
+  environment = {
+    pathsToLink = [
+      "/share/applications"
+      "/share/xdg-desktop-portal"
     ];
 
-    environment = {
-        pathsToLink = [
-            "/share/applications"
-            "/share/xdg-desktop-portal"
+    variables = {
+
+    };
+
+    sessionVariables = {
+      XMODIFIERS = "@im=fcitx";
+      SDL_IM_MODULE = "fcitx";
+      XDG_DATA_DIRS = [
+        "/run/current-systen/sw/share"
+        "/run/current-system/sw/share/icons"
+      ];
+      QT_QUICK_CONTROL_ICON_THEME = "Adwaita";
+    };
+
+    systemPackages = with pkgs; [
+      agenix-cli
+      adwaita-icon-theme
+      git
+    ];
+  };
+
+  time = {
+    timeZone = "Asia/Shanghai";
+  };
+
+  i18n = {
+    defaultLocale = "zh_CN.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "zh_CN.UTF-8";
+      LC_IDENTIFICATION = "zh_CN.UTF-8";
+      LC_MEASUREMENT = "zh_CN.UTF-8";
+      LC_MONETARY = "zh_CN.UTF-8";
+      LC_NAME = "zh_CN.UTF-8";
+      LC_NUMERIC = "zh_CN.UTF-8";
+      LC_PAPER = "zh_CN.UTF-8";
+      LC_TELEPHONE = "zh_CN.UTF-8";
+      LC_TIME = "zh_CN.UTF-8";
+    };
+
+    inputMethod = {
+      enable = true;
+      type = "fcitx5";
+      fcitx5 = {
+        addons = with pkgs; [
+          fcitx5-rime
+          fcitx5-gtk
+          qt6Packages.fcitx5-configtool
         ];
+        waylandFrontend = true;
+      };
+    };
+  };
 
-        variables = {
+  networking = {
+    hostName = "Ocean";
+    wireless.enable = true;
+    networkmanager.enable = true;
+    firewall.enable = true;
+  };
 
-        };
+  hardware = {
+    bluetooth.enable = true;
+  };
 
-        sessionVariables = {
-            XMODIFIERS = "@im=fcitx";
-            SDL_IM_MODULE = "fcitx";
-            XDG_DATA_DIRS = [ "/run/current-systen/sw/share" "/run/current-system/sw/share/icons" ];
-            QT_QUICK_CONTROL_ICON_THEME = "Adwaita";
-        };
+  services = {
+    greetd = {
+      enable = true;
+      useTextGreeter = false;
+      settings.default_session.command = "${lib.getExe pkgs.tuigreet} --asterisks";
+    };
+  };
 
-        systemPackages = with pkgs; [
-            agenix-cli
-            adwaita-icon-theme
-            git
-        ];
+  programs = {
+    niri = {
+      enable = true;
     };
 
-    time = {
-        timeZone = "Asia/Shanghai";
+    noctalia = {
+      enable = true;
+      recommendedServices.enable = true;
+      systemd.enable = true;
     };
 
-    i18n = {
-        defaultLocale = "zh_CN.UTF-8";
-        extraLocaleSettings = {
-            LC_ADDRESS = "zh_CN.UTF-8";
-            LC_IDENTIFICATION = "zh_CN.UTF-8";
-            LC_MEASUREMENT = "zh_CN.UTF-8";
-            LC_MONETARY = "zh_CN.UTF-8";
-            LC_NAME = "zh_CN.UTF-8";
-            LC_NUMERIC = "zh_CN.UTF-8";
-            LC_PAPER = "zh_CN.UTF-8";
-            LC_TELEPHONE = "zh_CN.UTF-8";
-            LC_TIME = "zh_CN.UTF-8";
-        };
-
-        inputMethod = {
-            enable = true;
-            type = "fcitx5";
-            fcitx5 = {
-                addons = with pkgs; [
-                fcitx5-rime
-                fcitx5-gtk
-                qt6Packages.fcitx5-configtool
-                ];
-                waylandFrontend = true;
-            };
-        };
+    nixvim = {
+      enable = true;
+      defaultEditor = true;
+      nixpkgs.source = inputs.nixpkgs;
+      opts = {
+        tabstop = 4;
+        shiftwidth = 4;
+        expandtab = true;
+        smartindent = true;
+      };
     };
+  };
 
-    networking = {
-        hostName = "Ocean";
-        wireless.enable = true;
-        networkmanager.enable = true;
-        firewall.enable = true;
+  users.users = {
+    "huan" = {
+      isNormalUser = true;
+      description = "Huan";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
+      openssh.authorizedKeys.keys = [ ];
     };
+  };
 
-    hardware = {
-        bluetooth.enable = true;
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    useGlobalPkgs = true;
+    useUserPackages = false;
+
+    sharedModules = [
+      ../homes/shared/home.nix
+    ];
+
+    users = {
+      "huan" = import ../homes/huan/default.nix;
     };
+  };
 
-    services = {
-        greetd = {
-            enable = true;
-            useTextGreeter = false;
-            settings.default_session.command = "${lib.getExe pkgs.tuigreet} --asterisks";
-        };
-    };
+  system = {
+    stateVersion = "26.05";
+  };
 
-    programs = {
-        niri = {
-            enable = true;
-        };
-
-        noctalia = {
-            enable = true;
-            recommendedServices.enable = true;
-            systemd.enable = true;
-        };
-
-        nixvim = {
-            enable = true;
-            defaultEditor = true;
-            nixpkgs.source = inputs.nixpkgs;
-            opts = {
-                tabstop = 4;
-                shiftwidth = 4;
-                expandtab = true;
-                smartindent = true;
-            };
-        };
-    };
-
-    users.users = {
-        "huan" = {
-            isNormalUser = true;
-            description = "Huan";
-            extraGroups = [ "networkmanager" "wheel" ];
-            openssh.authorizedKeys.keys = [ ];
-        };
-    };
-
-    home-manager = {
-        extraSpecialArgs = { inherit inputs; };
-        useGlobalPkgs = true;
-        useUserPackages = false;
-
-        sharedModules = [
-            ../homes/shared/home.nix
-        ];
-
-        users = {
-            "huan" = import ../homes/huan/default.nix;
-        };
-    };
-    
-    system = {
-        stateVersion = "26.05";
-    };
-
-    nixpkgs.config.allowUnfree = true;
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 }
