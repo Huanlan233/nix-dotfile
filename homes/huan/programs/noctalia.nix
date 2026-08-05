@@ -38,6 +38,15 @@
             control_center = {
                 sidebar = "full";
                 sidebar_section = "full";
+
+                shortcuts = [
+                    { type = "wifi"; }
+                    { type = "bluetooth"; }
+                    { type = "dark_mode"; }
+                    { type = "notification"; }
+                    { type = "power_profile"; }
+                    { type = "caffeine"; }
+                ];
             };
 
             dock = {
