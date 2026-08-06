@@ -16,5 +16,12 @@
 
       xdgOpenUsePortal = true;
     };
+
+    terminal-exec = {
+      enable = true;
+      settings.default = [
+        "Alacritty.desktop"
+      ];
+    };
   };
 }

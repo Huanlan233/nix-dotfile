@@ -17,7 +17,7 @@
       XMODIFIERS = "@im=fcitx";
       SDL_IM_MODULE = "fcitx";
       XDG_DATA_DIRS = [
-        "/run/current-systen/sw/share"
+        "/run/current-system/sw/share"
         "/run/current-system/sw/share/icons"
       ];
       QT_QUICK_CONTROL_ICON_THEME = "Adwaita";
