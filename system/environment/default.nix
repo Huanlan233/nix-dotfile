@@ -31,6 +31,7 @@
       tree
       nautilus
       alacritty
+      neovide
     ];
   };
 }
