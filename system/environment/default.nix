@@ -30,6 +30,7 @@
       wget
       tree
       nautilus
+      alacritty
     ];
   };
 }
