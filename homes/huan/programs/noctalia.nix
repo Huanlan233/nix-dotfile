@@ -84,7 +84,7 @@
         };
 
         launcher = {
-          app_grid = true;
+          app_grid = false;
         };
 
         panel = {

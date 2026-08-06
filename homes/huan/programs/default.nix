@@ -13,5 +13,6 @@
     ./gtk.nix
     ./niri.nix
     ./noctalia.nix
+    ./nixvim.nix
   ];
 }

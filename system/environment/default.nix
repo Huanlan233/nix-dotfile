@@ -32,6 +32,7 @@
       nautilus
       alacritty
       neovide
+      wl-clipboard
     ];
   };
 }
