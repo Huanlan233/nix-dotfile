@@ -31,6 +31,8 @@
         shiftwidth = 4;
         expandtab = true;
         smartindent = true;
+        number = true;
+        relativenumber = true;
       };
     };
 
