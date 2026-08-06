@@ -16,9 +16,9 @@
         "default" = {
           position = "bottom";
           end = [
+            "tray"
             "media"
             "wallpaper"
-            "tray"
             "notifications"
             "clipboard"
             "network"
