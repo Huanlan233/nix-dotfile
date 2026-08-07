@@ -16,8 +16,8 @@
 
   home.packages = with pkgs; [
     firefox
-    vscode
     clash-verge-rev
+    #vscode
     # kdePackages.dolphin
     # kdePackages.qtsvg
     # kdePackages.kio
