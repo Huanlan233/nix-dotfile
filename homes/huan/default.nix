@@ -27,6 +27,7 @@
     # mcp-nixos
     cc-switch
     inputs.codex-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
+    starship
   ];
 
 }

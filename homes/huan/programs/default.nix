@@ -14,5 +14,7 @@
     ./niri.nix
     ./noctalia.nix
     ./nixvim.nix
+    ./zsh.nix
+    ./starship.nix
   ];
 }

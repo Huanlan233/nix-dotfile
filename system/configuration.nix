@@ -17,6 +17,7 @@
     ./time/default.nix
     ./users/default.nix
     ./xdg/default.nix
+    ./fonts/default.nix
   ];
 
   system = {

@@ -25,7 +25,6 @@
     nixvim = {
       enable = true;
       defaultEditor = true;
-      nixpkgs.source = inputs.nixpkgs;
       opts = {
         tabstop = 4;
         shiftwidth = 4;
@@ -39,6 +38,13 @@
     nautilus-open-any-terminal = {
       enable = true;
       terminal = "alacritty";
+    };
+
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      autosuggestions.enable = true;
+      syntaxHighlighting.enable = true;
     };
   };
 }

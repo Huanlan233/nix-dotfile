@@ -22,6 +22,8 @@
       openssh.authorizedKeys.keys = [ ];
     };
   };
+  
+  users.defaultUserShell = pkgs.zsh;
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
