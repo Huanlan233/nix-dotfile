@@ -43,7 +43,7 @@
         key = "<C-F4>";
       }
 
-      # Windows Change
+      ## Windows Change
       {
         action = "<cmd>wincmd k<CR>";
         key = "<C-S-Up>";
@@ -60,7 +60,16 @@
         action = "<cmd>wincmd h<CR>";
         key = "<C-S-Left>";
       }
+      {
+        action = "<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + .1<CR>";
+        key = "<C-=>";
+      }
+      {
+        action = "<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - .1<CR>";
+        key = "<C-->";
+      }
 
+      ## Telescope
       {
         action = "<cmd>Telescope fd<CR>";
         key = "<C-f>";
