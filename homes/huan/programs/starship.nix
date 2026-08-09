@@ -13,7 +13,7 @@
         read_only = "[ReadOnly]";
         disabled = false;
       };
-      
+
       git_branch = {
         format = "$symbol$branch($style)";
         disabled = false;

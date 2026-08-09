@@ -15,7 +15,8 @@
   home.homeDirectory = "/home/huan";
 
   home.packages = with pkgs; [
-    firefox
+    #firefox
+    #ungoogled-chromium
     clash-verge-rev
     #vscode
     # kdePackages.dolphin

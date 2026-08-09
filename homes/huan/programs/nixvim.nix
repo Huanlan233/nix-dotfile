@@ -135,7 +135,12 @@
           show_close_icon = true;
           show_tab_indicators = true;
           offsets = [
-            { filetype = "neo-tree"; highlight = "Directory"; text = "File Explorer"; text_align = "center"; }
+            {
+              filetype = "neo-tree";
+              highlight = "Directory";
+              text = "File Explorer";
+              text_align = "center";
+            }
           ];
         };
       };
@@ -192,7 +197,7 @@
       treesitter = {
         enable = true;
         indent.enable = true;
-        folding.enable= false;
+        folding.enable = false;
         highlight.enable = true;
         grammarPackages = config.programs.nixvim.plugins.treesitter.package.all;
         nixGrammars = true;

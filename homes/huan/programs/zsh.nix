@@ -7,8 +7,12 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    history.ignorePatterns = [ "rm *" "cp *" "pkill *" ];
-    
+    history.ignorePatterns = [
+      "rm *"
+      "cp *"
+      "pkill *"
+    ];
+
     plugins = [
       {
         name = "zsh-autosuggestion";

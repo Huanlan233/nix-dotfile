@@ -16,5 +16,6 @@
     ./nixvim.nix
     ./zsh.nix
     ./starship.nix
+    ./chromium.nix
   ];
 }
