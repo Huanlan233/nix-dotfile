@@ -1,4 +1,9 @@
-{ inputs, config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -11,7 +16,7 @@
       uBO = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
     };
   };
-  
+
   programs.chromium = {
     enable = true;
     package = pkgs.ungoogled-chromium;
