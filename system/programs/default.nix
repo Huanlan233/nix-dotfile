@@ -46,5 +46,16 @@
       autosuggestions.enable = true;
       syntaxHighlighting.enable = true;
     };
+
+    chromium = {
+      enable = true;
+      extraOpts = {
+        DefaultSearchProviderEnabled = true;
+        DefaultSearchProviderName = "Bing";
+        DefaultSearchProviderIconURL = "https://www.bing.com/favicon.ico";
+        DefaultSearchProviderSearchURL = "https://www.bing.com/search?q={searchTerms}";
+        DefaultSearchProviderSuggestURL = "https://www.bing.com/osjson.aspx?query={searchTerms}";
+      };
+    };
   };
 }

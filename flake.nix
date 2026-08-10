@@ -48,6 +48,11 @@
       url = "github:SecBear/codex-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    chromexup = {
+      url = "github:crabdancing/chromexup-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
