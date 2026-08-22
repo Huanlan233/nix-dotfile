@@ -33,7 +33,7 @@
     prefer-no-csd = true;
 
     binds = {
-      "Mod+Return".action.spawn-sh = "noctalia msg panel-open launcher";
+      "Mod+A".action.spawn-sh = "noctalia msg panel-open launcher";
       "Mod+T".action.spawn = "alacritty";
 
       "Mod+1".action.focus-workspace = 1;
@@ -77,7 +77,7 @@
       "Mod+Q".action.close-window = [ ];
       "Mod+F".action.maximize-column = [ ];
       "Mod+Shift+F".action.fullscreen-window = [ ];
-      "Mod+O".action.toggle-overview = [ ];
+      "Mod+Tab".action.toggle-overview = [ ];
 
       "Mod+R".action.switch-preset-column-width = [ ];
       "Mod+Shift+R".action.switch-preset-window-height = [ ];
