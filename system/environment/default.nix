@@ -33,6 +33,7 @@
       alacritty
       neovide
       wl-clipboard
+      xwayland-satellite
     ];
   };
 }

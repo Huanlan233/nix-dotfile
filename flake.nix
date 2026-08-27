@@ -53,6 +53,11 @@
       url = "github:crabdancing/chromexup-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    welayerd = {
+      url = "github:yigexuanmu/we-layerd-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

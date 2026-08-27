@@ -57,5 +57,10 @@
         DefaultSearchProviderSuggestURL = "https://www.bing.com/osjson.aspx?query={searchTerms}";
       };
     };
+
+    steam = {
+      enable = true;
+      extest.enable = true;
+    };
   };
 }

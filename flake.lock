@@ -406,7 +406,8 @@
         "niri": "niri",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
-        "noctalia": "noctalia"
+        "noctalia": "noctalia",
+        "welayerd": "welayerd"
       }
     },
     "systems": {
@@ -452,6 +453,26 @@
         "owner": "nix-systems",
         "ref": "future-26.11",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "welayerd": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787140128,
+        "narHash": "sha256-AP7OMvrMDS1fGfTHiZVSkzY536ybILXJc+B8gtnOQj8=",
+        "owner": "yigexuanmu",
+        "repo": "we-layerd-nix",
+        "rev": "fc483e1cec644d60adaaa02cd65fc9da0c8399e3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yigexuanmu",
+        "repo": "we-layerd-nix",
         "type": "github"
       }
     },

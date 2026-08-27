@@ -17,7 +17,12 @@
   home.packages = with pkgs; [
     clash-verge-rev
     cc-switch
+    qq
+    prismlauncher
+    steam
+    fastfetch
     inputs.codex-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.welayerd.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
 }
