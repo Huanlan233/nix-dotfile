@@ -12,10 +12,12 @@
     ./git.nix
     ./gtk.nix
     ./niri.nix
-    ./noctalia.nix
+    #./noctalia.nix
+    ./dms.nix
     ./nixvim.nix
     ./zsh.nix
     ./starship.nix
     ./chromium.nix
+    ./alacritty.nix
   ];
 }

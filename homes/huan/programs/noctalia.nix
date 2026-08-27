@@ -14,10 +14,9 @@
     settings = {
       bar = {
         "default" = {
-          position = "bottom";
+          position = "top";
           end = [
             "tray"
-            "media"
             "wallpaper"
             "notifications"
             "clipboard"
@@ -26,12 +25,17 @@
             "volume"
             "brightness"
             "battery"
+            "launcher"
+            "control-center"
+            "session"
+          ];
+          center = [
+            "clock"
+            "media"
           ];
           start = [
-            "session"
-            "control-center"
-            "launcher"
             "workspaces"
+            "active_window"
           ];
         };
       };

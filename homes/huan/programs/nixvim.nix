@@ -1,4 +1,4 @@
-{ config, inputs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
   imports = [
@@ -7,11 +7,7 @@
 
   programs.nixvim = {
     enable = true;
-
-    colorschemes = {
-      nord.enable = true;
-    };
-
+    colorscheme = "dms";
     opts = {
       tabstop = 4;
       shiftwidth = 4;
@@ -213,5 +209,21 @@
         enable = true;
       };
     };
+
+    # DMS requires AvengeMedia/base46's _DMS_SUPPORT API; nixpkgs' base46 is NvChad's upstream.
+    extraPlugins = [
+      (pkgs.vimUtils.buildVimPlugin {
+        pname = "base46";
+        version = "0-unstable-2026-08-27";
+        doCheck = false;
+        src = pkgs.fetchFromGitHub {
+          owner = "AvengeMedia";
+          repo = "base46";
+          rev = "83522e02c6c3b4ea901c4bffd9e0a5e0371c1fe6";
+          sha256 = "sha256-kwDMC6rYzJYECmGnwn8JiAbffUq7hAXcUH6gPSkk2uI=";
+        };
+      })
+    ];
+
   };
 }

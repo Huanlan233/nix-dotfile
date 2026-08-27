@@ -9,6 +9,7 @@
   imports = [
     inputs.niri.nixosModules.niri
     inputs.nixvim.nixosModules.nixvim
+    inputs.dms.nixosModules.dank-material-shell
   ];
 
   programs = {
@@ -16,10 +17,24 @@
       enable = true;
     };
 
-    noctalia = {
+    #noctalia = {
+    #  enable = true;
+    #  recommendedServices.enable = true;
+    #  systemd.enable = true;
+    #};
+
+    dank-material-shell = {
       enable = true;
-      recommendedServices.enable = true;
-      systemd.enable = true;
+
+      systemd = {
+        enable = true;
+        restartIfChanged = true;
+      };
+
+      enableSystemMonitoring = true;
+      enableVPN = true;
+      enableDynamicTheming = true;
+      enableCalendarEvents = true;
     };
 
     nixvim = {

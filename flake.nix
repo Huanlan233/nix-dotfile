@@ -34,8 +34,13 @@
       url = "github:nix-community/nixvim";
     };
 
-    noctalia = {
-      url = "github:noctalia-dev/noctalia";
+    #noctalia = {
+    #  url = "github:noctalia-dev/noctalia";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
+
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

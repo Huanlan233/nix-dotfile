@@ -33,8 +33,9 @@
     prefer-no-csd = true;
 
     binds = {
-      "Mod+A".action.spawn-sh = "noctalia msg panel-open launcher";
+      "Mod+A".action.spawn-sh = "dms ipc launcher toggle";
       "Mod+T".action.spawn = "alacritty";
+      "Mod+E".action.spawn = "nautilus";
 
       "Mod+1".action.focus-workspace = 1;
       "Mod+2".action.focus-workspace = 2;

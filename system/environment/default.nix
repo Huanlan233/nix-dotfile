@@ -34,6 +34,8 @@
       neovide
       wl-clipboard
       xwayland-satellite
+      libnotify
+      matugen
     ];
   };
 }
